@@ -15,5 +15,36 @@ NOTES:
 
 void * sortedArrayPositionsChange(int *Arr, int len)
 {
-	return NULL;
+	int i, t, x = -1, y = 0, k = 0;
+	if (len<0 || Arr == NULL)
+		return NULL;
+	else
+	{
+		for (i = 0; i <(len-1); i++)
+		{
+			if (Arr[i]>Arr[i + 1])
+			{
+				if (x == -1)
+					x = i;
+				else
+					y = i + 1;
+				k = 1;
+			}
+		}
+	}
+
+	if (y == 0 && k == 1)
+	{
+		t = Arr[x];
+		Arr[x] = Arr[x + 1];
+		Arr[x + 1] = t;
+
+	}
+	else if (y != 0 && k == 1)
+	{
+		t = Arr[x];
+		Arr[x] = Arr[y];
+		Arr[y] = t;
+	}
+	return Arr;
 }
